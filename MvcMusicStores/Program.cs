@@ -1,4 +1,11 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MvcMusicStores.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MvcMusicStoresContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcMusicStoresContext") ?? throw new InvalidOperationException("Connection string 'MvcMusicStoresContext' not found.")));
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
