@@ -1,11 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MvcMusicStores.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MvcMusicStoresContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MvcMusicStoresContext") ?? throw new InvalidOperationException("Connection string 'MvcMusicStoresContext' not found.")));
 
-
+builder.Services
+    .AddAuth0WebAppAuthentication(options => {
+        options.Domain = builder.Configuration["Auth0:Domain"];
+        options.ClientId = builder.Configuration["Auth0:ClientId"];
+        options.Scope = "openid profile email";
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -24,6 +30,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

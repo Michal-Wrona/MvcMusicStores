@@ -10,6 +10,7 @@ using MvcMusicStores.Models;
 
 namespace MvcMusicStores.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class StoreManagerController : Controller
     {
         private readonly MvcMusicStoresContext _context;
