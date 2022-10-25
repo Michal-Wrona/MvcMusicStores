@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcMusicStores.Data;
 
@@ -11,9 +12,10 @@ using MvcMusicStores.Data;
 namespace MvcMusicStores.Migrations
 {
     [DbContext(typeof(MvcMusicStoresContext))]
-    partial class MvcMusicStoresContextModelSnapshot : ModelSnapshot
+    [Migration("20221025174813_CartAndOrderCreate")]
+    partial class CartAndOrderCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
