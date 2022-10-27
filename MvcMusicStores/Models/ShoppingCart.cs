@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web;
+
 
 namespace MvcMusicStores.Models
 {
     public partial class ShoppingCart
     {
-        private MvcMusicStoresContext storeDB;
+        private readonly MvcMusicStoresContext storeDB;
         public ShoppingCart(MvcMusicStoresContext context)
         {
             storeDB = context;
@@ -17,7 +17,7 @@ namespace MvcMusicStores.Models
 
         public ShoppingCart() { }
 
-        // MvcMusicStoresContext storeDB = new MvcMusicStoresContext();
+        //// MvcMusicStoresContext storeDB = new MvcMusicStoresContext();
 
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";

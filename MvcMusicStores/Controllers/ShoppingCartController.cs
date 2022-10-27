@@ -28,7 +28,7 @@ namespace MvcMusicStores.Controllers
                 CartTotal = cart.GetTotal()
             };
             // Return the view
-            return View(viewModel);
+            return View();
         }
         //
         // GET: /Store/AddToCart/5

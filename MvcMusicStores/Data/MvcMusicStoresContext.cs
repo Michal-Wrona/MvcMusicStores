@@ -9,7 +9,6 @@ namespace MvcMusicStores.Data
 {
     public class MvcMusicStoresContext : DbContext
     {
-
         public MvcMusicStoresContext (DbContextOptions<MvcMusicStoresContext> options)
             : base(options)
         {
